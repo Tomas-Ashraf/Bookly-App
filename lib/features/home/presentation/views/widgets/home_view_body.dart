@@ -19,12 +19,15 @@ class HomeViewBody extends StatelessWidget {
         FeaturedBooksListView(),
         SizedBox(height: 50),
         Padding(
-          padding: EdgeInsets.only(left: 24),
+          padding: EdgeInsets.only(left: 30),
           child: Text('Best Seller', style: Styles.textStyle18),
         ),
-        SizedBox(height: 16),
+        SizedBox(height: 20),
 
-        BestSellerListViewItem(),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30),
+          child: BestSellerListViewItem(),
+        ),
       ],
     );
   }
@@ -54,10 +57,15 @@ class BestSellerListViewItem extends StatelessWidget {
           const SizedBox(width: 30),
           Column(
             children: [
-              Text(
-                'Tomas',
-                style: Styles.textStyle18.copyWith(
-                  fontFamily: kGtSectraFineFont,
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: Text(
+                  'Harry Potter and the Goblet of Fire',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Styles.textStyle18.copyWith(
+                    fontFamily: kGtSectraFineFont,
+                  ),
                 ),
               ),
             ],
