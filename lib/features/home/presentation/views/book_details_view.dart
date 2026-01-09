@@ -6,12 +6,8 @@ class BookDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(child: Scaffold(body: BookDetailsViewBody()));
-    //  SafeArea(
-    //   child: Container(
-    //     color: kPrimaryColor,
-    //     child: const BookDetailsViewBody(),
-    //   ),
-    // );
+    return const SafeArea(
+      child: Scaffold(body: SizedBox(child: BookDetailsViewBody())),
+    );
   }
 }
