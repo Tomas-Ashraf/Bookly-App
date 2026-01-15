@@ -21,12 +21,15 @@ class FeaturedBooksListView extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.3,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 15,
+                itemCount: state.books.length,
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: SizedBox(
                     height: MediaQuery.of(context).size.height * 0.3,
-                    child: const CustomBookImage(),
+                    child: CustomBookImage(
+                      imageUrl:
+                          state.books[index].volumeInfo.imageLinks.thumbnail,
+                    ),
                   ),
                 ),
               ),

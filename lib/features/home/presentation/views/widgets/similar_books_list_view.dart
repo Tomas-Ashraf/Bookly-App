@@ -16,7 +16,10 @@ class SimilarBooksListView extends StatelessWidget {
           padding: const EdgeInsets.only(right: 5.0),
           child: SizedBox(
             height: MediaQuery.of(context).size.height * 0.15,
-            child: const CustomBookImage(),
+            child: const CustomBookImage(
+              imageUrl:
+                  'https://cdn.shopaccino.com/igmguru/products/flutter-igmguru_1527424732_l.jpg?v=546',
+            ),
           ),
         ),
       ),

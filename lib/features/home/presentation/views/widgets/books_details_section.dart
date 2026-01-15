@@ -13,7 +13,10 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.42,
-          child: const CustomBookImage(),
+          child: const CustomBookImage(
+            imageUrl:
+                'https://cdn.shopaccino.com/igmguru/products/flutter-igmguru_1527424732_l.jpg?v=546',
+          ),
         ),
         const SizedBox(height: 43),
         Text(

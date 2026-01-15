@@ -1,29 +1,8 @@
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
-class CustomBookImage extends StatefulWidget {
-  const CustomBookImage({super.key});
-
-  @override
-  State<CustomBookImage> createState() => _CustomBookImageState();
-}
-
-class _CustomBookImageState extends State<CustomBookImage>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
+class CustomBookImage extends StatelessWidget {
+  const CustomBookImage({super.key, required this.imageUrl});
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -31,8 +10,8 @@ class _CustomBookImageState extends State<CustomBookImage>
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          image: const DecorationImage(
-            image: AssetImage(AssetsData.itemImage),
+          image: DecorationImage(
+            image: NetworkImage(imageUrl),
             fit: BoxFit.fill,
           ),
         ),
