@@ -2,7 +2,7 @@ import 'package:bookly_app/features/home/data/repos/home_repo.dart';
 import 'package:bookly_app/features/home/presentation/manager/featured_books_cubit/featured_books_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
+class FeaturedBooksCubit extends Cubit<FeaturedBooksStates> {
   FeaturedBooksCubit(this.homeRepo) : super(FeaturedBooksInitial());
 
   final HomeRepo homeRepo;
