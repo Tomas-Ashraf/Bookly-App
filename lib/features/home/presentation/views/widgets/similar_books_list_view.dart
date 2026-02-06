@@ -1,9 +1,11 @@
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
 import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/features/home/presentation/manager/similar_books_cubit/similar_books_cubit_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SimilarBooksListView extends StatelessWidget {
   const SimilarBooksListView({super.key});
@@ -15,17 +17,25 @@ class SimilarBooksListView extends StatelessWidget {
         if (state is SimilarBooksSuccess) {
           return SizedBox(
             width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.19,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 15,
+              itemCount: state.books.length,
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.only(right: 5.0),
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.15,
-                  child: const CustomBookImage(
-                    imageUrl:
-                        'https://cdn.shopaccino.com/igmguru/products/flutter-igmguru_1527424732_l.jpg?v=546',
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(
+                        context,
+                      ).push(AppRouter.kBookDetails, extra: state.books[index]);
+                    },
+                    child: CustomBookImage(
+                      imageUrl:
+                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                          '',
+                    ),
                   ),
                 ),
               ),
