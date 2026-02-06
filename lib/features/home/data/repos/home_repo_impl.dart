@@ -1,3 +1,5 @@
+// ignore_for_file: unused_catch_clause, avoid_print
+
 import 'package:bookly_app/core/errors/failures.dart';
 import 'package:bookly_app/core/utils/api_service.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
@@ -21,7 +23,6 @@ class HomeRepoImpl implements HomeRepo {
         books.add(BookModel.fromJson(item));
       }
       return right(books);
-      // ignore: unused_catch_clause
     } on Exception catch (e) {
       left(ServerFailure(errorMessage: e.toString()));
       if (e is DioException) {
@@ -42,7 +43,6 @@ class HomeRepoImpl implements HomeRepo {
         books.add(BookModel.fromJson(item));
       }
       return right(books);
-      // ignore: unused_catch_clause
     } on Exception catch (e) {
       left(ServerFailure(errorMessage: e.toString()));
       if (e is DioException) {

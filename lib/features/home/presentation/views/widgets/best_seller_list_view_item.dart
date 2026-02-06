@@ -19,10 +19,12 @@ class BookListViewItem extends StatelessWidget {
         GoRouter.of(context).push(AppRouter.kBookDetails);
       },
       child: SizedBox(
-        height: 150,
+        height: MediaQuery.of(context).size.height * 0.19,
         child: Row(
           children: [
-            CustomBookImage(imageUrl: book.volumeInfo.imageLinks.thumbnail),
+            CustomBookImage(
+              imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
+            ),
             const SizedBox(width: 30),
             Expanded(
               child: Column(
