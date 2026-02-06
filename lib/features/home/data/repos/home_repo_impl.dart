@@ -23,6 +23,7 @@ class HomeRepoImpl implements HomeRepo {
       return right(books);
       // ignore: unused_catch_clause
     } on Exception catch (e) {
+      left(ServerFailure(errorMessage: e.toString()));
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }
@@ -43,6 +44,7 @@ class HomeRepoImpl implements HomeRepo {
       return right(books);
       // ignore: unused_catch_clause
     } on Exception catch (e) {
+      left(ServerFailure(errorMessage: e.toString()));
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }
